@@ -15,38 +15,68 @@ use app\models;
 class GitlabRepoTest extends \Codeception\Test\Unit
 {
     /**
+     * @dataProvider countProvider
      * Test case for counting repo rating
      *
+     * @param int $forkCount
+     * @param int $startCount
+     * @param int $expected
      * @return void
      */
-    public function testRatingCount()
+    public function testRatingCount($forkCount, $startCount, $expected)
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $repo = new models\GitlabRepo("testRating", $forkCount, $startCount);
+        $this->assertEquals($expected, $repo->getRating());
     }
 
     /**
+     * @dataProvider countProvider
      * Test case for repo model data serialization
      *
+     * @param int $forkCount
+     * @param int $startCount
+     * @param int $ratingCount
      * @return void
      */
-    public function testData()
+    public function testData($forkCount, $startCount, $ratingCount)
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $repo = new models\GitlabRepo("testData", $forkCount, $startCount);
+        $expected = [
+            'name' => 'testData',
+            'fork-count' => $forkCount,
+            'start-count' => $startCount,
+            'rating' => $ratingCount,
+        ];
+        $this->assertEquals($expected, $repo->getData());
     }
 
     /**
+     * @dataProvider countProvider
      * Test case for repo model __toString verification
      *
+     * @param int $forkCount
+     * @param int $startCount
      * @return void
      */
-    public function testStringify()
+    public function testStringify($forkCount, $startCount)
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $repo = new models\GitlabRepo("testStringify", $forkCount, $startCount);
+        $expected = sprintf(
+            "%-75s %4d ⇅ %4d ★",
+            "testStringify",
+            $forkCount,
+            $startCount
+        );
+        $this->assertEquals($expected, $repo->__toString());
+    }
+
+    public function countProvider()
+    {
+        return [
+            [0, 0, 0],
+            [10, 20, 15.0],
+            [1, 1, 1.25],
+            [1, null, 1]
+        ];
     }
 }

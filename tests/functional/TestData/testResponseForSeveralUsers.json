@@ -1,0 +1,81 @@
+[
+  {
+    "name": "test",
+    "platform": "github",
+    "total-rating": 22.166666666666664,
+    "repos": [],
+    "repo": [
+      {
+        "name": "HelloWorld",
+        "fork-count": 19,
+        "start-count": 4,
+        "watcher-count": 4,
+        "rating": 14.666666666666666
+      },
+      {
+        "name": "SDWebImage",
+        "fork-count": 3,
+        "start-count": 1,
+        "watcher-count": 1,
+        "rating": 2.5
+      },
+      {
+        "name": "Test--01",
+        "fork-count": 4,
+        "start-count": 0,
+        "watcher-count": 0,
+        "rating": 2.6666666666666665
+      },
+      {
+        "name": "rokehan",
+        "fork-count": 2,
+        "start-count": 0,
+        "watcher-count": 0,
+        "rating": 1.3333333333333333
+      },
+      {
+        "name": "sNews",
+        "fork-count": 0,
+        "start-count": 2,
+        "watcher-count": 2,
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "name": "kfr",
+    "platform": "github",
+    "total-rating": 1.5,
+    "repos": [],
+    "repo": [
+      {
+        "name": "kf-cli",
+        "fork-count": 0,
+        "start-count": 2,
+        "watcher-count": 2,
+        "rating": 1
+      },
+      {
+        "name": "cards",
+        "fork-count": 0,
+        "start-count": 0,
+        "watcher-count": 0,
+        "rating": 0
+      },
+      {
+        "name": "UdaciCards",
+        "fork-count": 0,
+        "start-count": 0,
+        "watcher-count": 0,
+        "rating": 0
+      },
+      {
+        "name": "unikgen",
+        "fork-count": 0,
+        "start-count": 1,
+        "watcher-count": 1,
+        "rating": 0.5
+      }
+    ]
+  }
+]

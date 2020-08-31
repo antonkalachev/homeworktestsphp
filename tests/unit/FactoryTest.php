@@ -3,6 +3,8 @@
 namespace tests;
 
 use app\components;
+use yii\base\ErrorException;
+use yii\base\Exception;
 
 /**
  * FactoryTest contains test cases for factory component
@@ -15,6 +17,7 @@ use app\components;
 class FactoryTest extends \Codeception\Test\Unit
 {
     /**
+     * @dataProvider platformProvider
      * Test case for creating platform component
      * 
      * IMPORTANT NOTE:
@@ -22,10 +25,24 @@ class FactoryTest extends \Codeception\Test\Unit
      *
      * @return void
      */
-    public function testCreate()
+    public function testCreate($expected, $platform)
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $factory = new components\Factory();
+        try {
+            $actual = $factory->create($platform);
+            $this->assertInstanceOf($expected, $actual);
+        } catch (\Exception $e) {
+            $this->assertInstanceOf($expected, $e);
+        }
+    }
+
+    public function platformProvider()
+    {
+        return [
+            [components\platforms\Github::class, 'github'],
+            [components\platforms\Gitlab::class, 'gitlab'],
+            [components\platforms\Bitbucket::class, 'bitbucket'],
+            [\Exception::class, 'unknown']
+        ];
     }
 }
